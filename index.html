@@ -8,6 +8,7 @@
         body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
         h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         h2 { color: #34495e; margin-top: 30px; }
+        p, li { font-size: 16px; }
         ul { margin-bottom: 20px; }
         .date { color: #666; font-style: italic; margin-bottom: 30px; }
     </style>
@@ -16,33 +17,38 @@
     <h1>Privacy Policy for Simple Scanner</h1>
     <div class="date">Effective Date: November 11, 2026</div>
 
-    <p>This Privacy Policy explains how Sidharth Gupta ("we", "us", or "our") collects, uses, and discloses information about you when you use the Simple Scanner mobile application (the "App").</p>
+    <p>This Privacy Policy explains how Sidharth Gupta ("we", "us", or "our") handles information when you use the Simple Scanner mobile application (the "App"). Our philosophy is built on absolute privacy: Fast, Secure, and Simple.</p>
 
-    <h2>1. Data Collection and Usage</h2>
-    <p>Simple Scanner is designed around our core philosophy: Fast, Secure, and Simple. Your privacy is our highest priority.</p>
+    <h2>1. Zero Data Collection & Local Processing</h2>
+    <p>Simple Scanner operates entirely offline. We do not collect, store, transmit, or share any personal information, documents, or usage analytics.</p>
     <ul>
-        <li><strong>Offline Processing:</strong> All document scanning, image enhancement, and PDF generation processes occur completely locally on your device. We do not transmit, upload, or store your scanned documents on any external servers.</li>
-        <li><strong>No Personal Information Collected:</strong> We do not require you to create an account, and we do not collect personal identifiers, email addresses, phone numbers, or analytics.</li>
+        <li><strong>On-Device Processing:</strong> All document cropping, image enhancement, compression, and PDF generation occur locally on your device hardware.</li>
+        <li><strong>No Account Required:</strong> We do not ask for personal identifiers, email addresses, or phone numbers.</li>
+        <li><strong>No Telemetry or Trackers:</strong> The App contains no third-party advertising SDKs, tracking pixels, or crash-reporting telemetry that transmits your data to us.</li>
     </ul>
 
-    <h2>2. Permissions Required</h2>
-    <p>To function properly, the App requires the following device permissions:</p>
+    <h2>2. App Permissions</h2>
+    <p>To operate securely and maintain your privacy, the App strictly limits the permissions it requests:</p>
     <ul>
-        <li><strong>Camera Permission:</strong> Required to capture images of your physical documents.</li>
-        <li><strong>Storage Access (Scoped Storage):</strong> Required to save the generated PDF and JPG files to the specific directory you select on your device.</li>
+        <li><strong>No Camera Permission Required:</strong> The App itself does not request or require Camera permissions. Document capture is securely delegated to the native Google Play Services scanner on your device (see Section 3).</li>
+        <li><strong>Scoped Storage Access:</strong> The App only requests permission to save generated PDF and JPG files to specific, user-designated directories using the Android Storage Access Framework. We cannot and do not access files, photos, or directories outside of the specific output folder you explicitly grant us access to.</li>
     </ul>
-    <p>We do not access any files, photos, or directories outside of the specific folder you explicitly grant the App permission to use via the Android Storage Access Framework.</p>
 
-    <h2>3. Third-Party Services</h2>
-    <p>The App utilizes Google ML Kit Document Scanner API to provide fast auto-cropping, edge detection, and image enhancement features. While ML Kit processes your images locally on your device, it is a Google service and may collect basic, anonymous usage metrics (such as the number of times a scan is initiated) in accordance with Google's Privacy Policy. It does not upload your images or documents to Google servers.</p>
+    <h2>3. Third-Party Services (Google ML Kit)</h2>
+    <p>To provide advanced edge detection and image enhancement without requiring direct camera access, the App utilizes the <strong>Google ML Kit Document Scanner API</strong>. When you initiate a scan, the App delegates the camera capture process to Google Play Services.</p>
+    <ul>
+        <li>The document processing is performed locally on your device by Google Play Services.</li>
+        <li>While ML Kit processes images locally, it is governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>, which may collect basic, anonymized metrics (such as API call frequency) for system health.</li>
+        <li>Your scanned documents and images are never uploaded to Google servers or accessible by us.</li>
+    </ul>
 
-    <h2>4. Data Retention</h2>
-    <p>Since we do not collect or transmit your data, we have no data to retain. Your scanned documents remain securely on your device until you manually delete them.</p>
+    <h2>4. Data Retention and Deletion</h2>
+    <p>Because Simple Scanner does not collect or transmit any user data, we have no data to retain or delete on our end. Your documents remain strictly under your control on your device's local storage until you manually delete them.</p>
 
     <h2>5. Changes to this Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.</p>
+    <p>We reserve the right to update this Privacy Policy at any time. Any changes will be reflected by updating the "Effective Date" at the top of this page. Because we do not collect contact information, you are encouraged to review this page periodically.</p>
 
-    <h2>6. Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy or our secure data practices, please contact us at: sudo.sidharth@gmail.com</p>
+    <h2>6. Contact Information</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our strict privacy practices, please contact us at: <a href="mailto:sidharth.gupta.ds@gmail.com">sidharth.gupta.ds@gmail.com</a></p>
 </body>
 </html>
