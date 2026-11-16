@@ -3,52 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Simple Scanner</title>
+    <title>Privacy Policy &amp; Terms of Use - Simple Scanner</title>
     <style>
         body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
         h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         h2 { color: #34495e; margin-top: 30px; }
         p, li { font-size: 16px; }
         ul { margin-bottom: 20px; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; font-size: 0.92em; }
         .date { color: #666; font-style: italic; margin-bottom: 30px; }
+        .legal-caps { font-size: 15px; }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy for Simple Scanner</h1>
-    <div class="date">Effective Date: November 11, 2026</div>
+    <h1>Privacy Policy &amp; Terms of Use for Simple Scanner</h1>
+    <div class="date">Effective Date: November 16, 2026</div>
 
-    <p>This Privacy Policy explains how Sidharth Gupta ("we", "us", or "our") handles information when you use the Simple Scanner mobile application (the "App"). Our philosophy is built on absolute privacy: Fast, Secure, and Simple.</p>
+    <p>This Privacy Policy and Terms of Use ("Policy") governs your use of the Simple Scanner mobile application (the "App") provided by the developers of Simple Scanner ("we", "us", or "our"). By downloading, installing, or using the App, you agree to the practices, terms, limitations, and disclaimers set out below.</p>
 
-    <h2>1. Zero Data Collection & Local Processing</h2>
-    <p>Simple Scanner operates entirely offline. We do not collect, store, transmit, or share any personal information, documents, or usage analytics.</p>
+    <h2>1. Zero Data Collection &amp; Offline-Only Architecture</h2>
+    <p>Simple Scanner operates locally on your device for document scanning, editing, compression, viewing, and file management. We do not operate user-data servers, and the App does not declare the Android <code>INTERNET</code> permission or collect, store, transmit, sell, or share your personal information, scanned documents, or usage data.</p>
     <ul>
-        <li><strong>On-Device Processing:</strong> All document cropping, image enhancement, compression, and PDF generation occur locally on your device hardware.</li>
-        <li><strong>No Account Required:</strong> We do not ask for personal identifiers, email addresses, or phone numbers.</li>
-        <li><strong>No Telemetry or Trackers:</strong> The App contains no third-party advertising SDKs, tracking pixels, or crash-reporting telemetry that transmits your data to us.</li>
+        <li><strong>On-Device Processing:</strong> Camera capture, edge detection, cropping, auto-deskew, enhancement filters, JPEG/PDF compression, watermarking, PDF encryption, and built-in document viewing execute locally on your device.</li>
+        <li><strong>No Accounts Required:</strong> The App does not require sign-in, user registration, email addresses, phone numbers, or personal identifiers.</li>
+        <li><strong>No Third-Party Ads, Analytics, or Crash SDKs:</strong> We do not bundle any third-party advertising SDKs, behavioral trackers, remote configuration services, or third-party analytics/crash-reporting SDKs in the App. Platform-level Google Play services (such as Play Store licensing, in-app updates, and optional device-level Play/Android diagnostics) are operated solely by Google as described in Section 4.</li>
+        <li><strong>Local Privacy Tools:</strong> By default, the App is configured to strip EXIF, XMP, IPTC, and GPS metadata from exported JPEGs and clear document metadata from generated PDFs (configurable on the Save screen). Passwords you enter to encrypt or unlock PDFs are processed locally in memory only and are never saved by the App or transmitted.</li>
     </ul>
 
-    <h2>2. App Permissions</h2>
-    <p>To operate securely and maintain your privacy, the App strictly limits the permissions it requests:</p>
+    <h2>2. App Permissions &amp; Scoped Local File Access</h2>
+    <p>All file access performed by the App is strictly local functionality on your device; no files or metadata are collected or shared with us. The App requests or includes only the permissions required for user-initiated functionality, bundled Android libraries, or Google Play distribution:</p>
     <ul>
-        <li><strong>No Camera Permission Required:</strong> The App itself does not request or require Camera permissions. Document capture is securely delegated to the native Google Play Services scanner on your device (see Section 3).</li>
-        <li><strong>Scoped Storage Access:</strong> The App only requests permission to save generated PDF and JPG files to specific, user-designated directories using the Android Storage Access Framework. We cannot and do not access files, photos, or directories outside of the specific output folder you explicitly grant us access to.</li>
+        <li><strong>Camera Permission (<code>CAMERA</code>):</strong> Requested only when you use the built-in camera scanner to capture pages. Captured frames are processed locally on your device. If you decline camera access, you can still import and edit existing images and PDFs from your device.</li>
+        <li><strong>Scoped Storage Access (MediaStore &amp; Storage Access Framework):</strong> The App does not request broad all-files access. By default, exported JPGs and PDFs are written locally via Android MediaStore to <code>Documents/Simple Scanner</code> (<code>Images/</code> and <code>PDFs/</code>). If you choose a custom save folder, the App uses the Android Storage Access Framework to access only the directory you explicitly select.</li>
+        <li><strong>User-Selected Imports:</strong> When you select images or PDFs through the Android system photo/file picker, or share/open files into the App from another application, the App accesses only the specific files you select.</li>
+        <li><strong>View Network Connections (<code>ACCESS_NETWORK_STATE</code>):</strong> Automatically merged by bundled Android Jetpack/CameraX library components to allow the operating system to inspect local connectivity state. Because the App does not declare the <code>INTERNET</code> permission, Simple Scanner cannot open network connections to upload your documents or personal data.</li>
+        <li><strong>Google Play License Check (<code>CHECK_LICENSE</code>):</strong> Automatically added by Google Play during app store distribution to allow Google Play on your device to verify app installation and update integrity. We do not collect or receive any data from this check, and it has no access to your documents, filenames, or personal information.</li>
     </ul>
 
-    <h2>3. Third-Party Services (Google ML Kit)</h2>
-    <p>To provide advanced edge detection and image enhancement without requiring direct camera access, the App utilizes the <strong>Google ML Kit Document Scanner API</strong>. When you initiate a scan, the App delegates the camera capture process to Google Play Services.</p>
+    <h2>3. Local Caches, Preferences &amp; Backups</h2>
     <ul>
-        <li>The document processing is performed locally on your device by Google Play Services.</li>
-        <li>While ML Kit processes images locally, it is governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>, which may collect basic, anonymized metrics (such as API call frequency) for system health.</li>
-        <li>Your scanned documents and images are never uploaded to Google servers or accessible by us.</li>
+        <li><strong>Temporary Processing Cache:</strong> During active capture, cropping, enhancement, rendering, and compression, temporary working files and thumbnails are stored inside the App's private cache directory and are normally deleted automatically when you save, discard a session, or close a document viewer session. However, if the App crashes, is force-closed, or loses power unexpectedly, residual temporary files may remain in your device's private cache until cleared or until the App is uninstalled.</li>
+        <li><strong>Local Preferences:</strong> App settings (such as default JPEG quality, startup behavior, view/sort mode, and export preferences) are saved locally on your device via Android Jetpack DataStore.</li>
+        <li><strong>Backup Exclusion Configuration:</strong> Local DataStore preferences (including custom folder URI references) are configured in our manifest backup rules to be excluded from Android cloud backups and device-to-device transfers, and private app caches are not backed up by Android Auto Backup. Persisted Storage Access Framework URI grants are managed locally by the Android system per device. Your operating system, device manufacturer, or third-party backup tools may still back up other shared device directories independently according to your device settings.</li>
     </ul>
 
-    <h2>4. Data Retention and Deletion</h2>
-    <p>Because Simple Scanner does not collect or transmit any user data, we have no data to retain or delete on our end. Your documents remain strictly under your control on your device's local storage until you manually delete them.</p>
+    <h2>4. Third-Party Libraries, Google Play Services &amp; External Apps</h2>
+    <ul>
+        <li><strong>Embedded Local Libraries:</strong> Document detection, image processing, compression, and PDF generation/rendering use local libraries (including AndroidX CameraX, OpenCV, jpegli, Android PdfRenderer, and Apache PDFBox-Android) without sending files to our servers or cloud scanning services.</li>
+        <li><strong>Google Play Platform Services:</strong> When installed via Google Play, Google Play may perform automated license verification (<code>CHECK_LICENSE</code>), the App integrates the Google Play In-App Update API to check through the Google Play Store app on your device whether a newer version is available, and Google Play or the Android OS may collect system-level diagnostics (such as Android vitals) depending on your device and Google account settings. These platform-level services are operated and governed solely by Google under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>, not by the developers of Simple Scanner, and the App itself never passes your documents, filenames, or personal data to them.</li>
+        <li><strong>Sharing &amp; External Apps:</strong> When you choose to share a file or open it externally, Android transfers access to the selected file to the external app or service you pick. Once shared or opened outside the App, that file is governed exclusively by the privacy policy and security practices of the receiving app or service.</li>
+    </ul>
 
-    <h2>5. Changes to this Privacy Policy</h2>
-    <p>We reserve the right to update this Privacy Policy at any time. Any changes will be reflected by updating the "Effective Date" at the top of this page. Because we do not collect contact information, you are encouraged to review this page periodically.</p>
+    <h2>5. Shared Storage Realities &amp; User Responsibilities</h2>
+    <p>While we take utmost care in designing Simple Scanner for local-only operation, privacy and security also depend on your device environment and how you handle exported files. You acknowledge and agree that you are solely responsible for:</p>
+    <ul>
+        <li><strong>Shared Device Storage:</strong> Files saved to <code>Documents/Simple Scanner</code> or a user-selected folder reside in shared device storage. Other apps on your device that hold storage permissions, system media scanners, gallery apps, or cloud-sync services enabled on your device (such as Google Drive, Photos, or manufacturer cloud backups) may be able to read, index, or sync those files outside of our control.</li>
+        <li><strong>Verifying Sensitive Exports:</strong> Always inspect exported files before submitting or sharing sensitive documents to verify that cropping, redactions, watermarks, EXIF metadata removal, and PDF password encryption meet your requirements.</li>
+        <li><strong>Password Management:</strong> Because the App does not store or transmit your PDF passwords, lost or forgotten passwords cannot be recovered by us.</li>
+        <li><strong>Device Security:</strong> Maintaining device passcodes, OS security updates, and physical device security, and recognizing that compromised, malware-infected, rooted, or modified devices may expose local app memory, caches, or storage to unauthorized third parties.</li>
+    </ul>
 
-    <h2>6. Contact Information</h2>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our strict privacy practices, please contact us at: <a href="mailto:sidharth.gupta.ds@gmail.com">sidharth.gupta.ds@gmail.com</a></p>
+    <h2>6. Disclaimer of Warranties ("As Is")</h2>
+    <p class="legal-caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APP AND ALL FEATURES (INCLUDING WITHOUT LIMITATION METADATA REMOVAL, PDF ENCRYPTION, PDF FLATTENING, WATERMARKING, COMPRESSION, AND STORAGE MIGRATION) ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITH ALL FAULTS AND WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, NON-INFRINGEMENT, OR UNINTERRUPTED OR ERROR-FREE OPERATION.</p>
+    <p>We take utmost care to avoid defects, but software and device environments are complex. We do not warrant or guarantee that the App will be free of bugs, vulnerabilities, or compatibility issues, or that any privacy, security, encryption, or metadata-stripping feature will prevent all possible exposure or unauthorized access under every device, operating system, or compromised-device scenario.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p class="legal-caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPERS OF SIMPLE SCANNER OR ANY CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES WHATSOEVER—INCLUDING WITHOUT LIMITATION LOSS OF DATA, CORRUPTION OR DELETION OF FILES, UNINTENDED DISCLOSURE OR EXPOSURE OF DOCUMENTS, METADATA, OR PASSWORDS, LOSS OF PROFITS, OR BUSINESS INTERRUPTION—ARISING OUT OF OR IN ANY WAY RELATED TO YOUR USE OF OR INABILITY TO USE THE APP, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+    <p>Without limiting the foregoing, we are not responsible or liable for any exposure, leak, corruption, or loss caused by:</p>
+    <ul>
+        <li>Compromised, malware-infected, rooted, jailbroken, or physically accessed devices, or unauthorized third-party software running on your device;</li>
+        <li>Software bugs, defects, regressions, or vulnerabilities in the App or in underlying third-party or open-source libraries;</li>
+        <li>Android operating system bugs, hardware/manufacturer customizations, system crashes, or OS-level caching, indexing, screenshots, clipboard history, or backup mechanisms;</li>
+        <li>Other applications or cloud-sync tools on your device accessing shared storage;</li>
+        <li>Your sharing, exporting, renaming, deleting, or migrating of files, or forgetting PDF passwords.</li>
+    </ul>
+    <p>Where applicable law does not allow the exclusion or limitation of certain liabilities or warranties, our liability shall be limited to the minimum extent permitted by law (and in no event exceeding the amount you paid us to use the App, which is zero for free use).</p>
+
+    <h2>8. Data Retention and Deletion</h2>
+    <p>Because we do not collect or store your data on external servers, we hold no user data to retain or delete. Saved documents remain on your device until deleted by you. Uninstalling the App removes its private cache and local DataStore settings, while files saved in <code>Documents/Simple Scanner</code> or your selected folder remain on your device unless you manually delete them.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>Because the App does not collect personal information from any user, no personal data is collected from children under the age of 13 (or the applicable age of digital consent in your jurisdiction).</p>
+
+    <h2>10. Governing Law, Severability &amp; Changes</h2>
+    <p>These Terms of Use and Privacy Policy are governed by and construed in accordance with the laws of India, without regard to conflict-of-law principles, except to the extent that mandatory consumer protection laws in your jurisdiction apply. If any provision of this Policy is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+    <p>We may update this Privacy Policy and Terms of Use at any time. Revisions take effect upon posting with an updated "Effective Date" at the top of this page. Your continued use of the App after any update constitutes acceptance of the revised Privacy Policy and Terms of Use.</p>
+
+    <h2>11. Contact Information</h2>
+    <p>If you have any questions, bug reports, security disclosures, or requests regarding this Privacy Policy and Terms of Use, please contact the developers of Simple Scanner at: <a href="mailto:sidharth.gupta.ds@gmail.com">sidharth.gupta.ds@gmail.com</a></p>
 </body>
 </html>
